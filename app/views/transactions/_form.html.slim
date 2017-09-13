@@ -1,0 +1,11 @@
+= simple_form_for(transaction) do |f|
+  = f.input :source_account_id
+  = f.input :destination_account_id
+  = f.input :amount, as: :string, input_html: { class: 'js-mask-money' }
+  = button_tag "Back", :type => 'button', :class => "pull-left btn btn-danger", :onclick => "location.href = '#{root_path()}'"
+  = f.button :submit, "Transfer", class: 'pull-right btn-success'
+
+javascript:
+	$( document ).ready(function() {
+	  $(".js-mask-money").maskMoney({prefix: 'R$ ', allowNegative: false, allowZero: true, defaultZero: true, thousands: '.', decimal: ',' , affixesStay : true});
+	});

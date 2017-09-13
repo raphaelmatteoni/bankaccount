@@ -1,0 +1,10 @@
+.col-lg-12
+	h1 Balance
+	.row.form-group
+		.col-lg-12
+			h3 Account #{@account.id}
+			h4 = number_to_currency(@account.balance, unit: "R$ ")
+	.row.form-group
+		.col-lg-12
+			= button_tag "Back", :type => 'button', :class => "btn btn-danger", :onclick => "location.href = '#{get_balance_accounts_path()}'"
+	

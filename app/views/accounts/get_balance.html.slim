@@ -1,0 +1,12 @@
+.col-lg-12
+	.row.form-group
+		- if flash[:alert]
+			p.alert.alert-danger
+				= flash[:alert]
+	.row.form-group
+		= simple_form_for :account, url: show_balance_accounts_path, method: :get do |f|
+			.row.form-group
+				= f.input :id, label: 'Account id', input_html: { value: "#{params[:account].try(:[], :id)}" }
+			.row.form-group			
+				= button_tag "Back", :type => 'button', :class => "pull-left btn btn-danger", :onclick => "location.href = '#{root_path()}'"
+				= f.button :submit, "Get Balance", class: 'pull-right btn-success'

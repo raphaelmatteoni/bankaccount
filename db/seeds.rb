@@ -1,0 +1,6 @@
+Account.create!(balance: 0)
+Account.create!(balance: 2540)
+Account.create!(balance: 100)
+Account.create!(balance: 198)
+Account.create!(balance: 850)
+Account.create!(balance: 20000)

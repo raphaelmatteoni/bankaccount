@@ -1,0 +1,19 @@
+.col-lg-12
+	h1 Transaction
+	.row.form-group
+		.col-lg-5.text-right
+			p
+				| Account #{@transaction.source_account_id}:
+				.text-danger 
+					| - #{number_to_currency(@transaction.amount, unit: "R$ ")} 
+		.col-lg-2.text-center
+			.i.glyphicon.glyphicon-transfer.fa-4x
+		.col-lg-5.text-left
+			p
+				| Account #{@transaction.destination_account_id}:
+				.text-success 
+					| + #{number_to_currency(@transaction.amount, unit: "R$ ")} 
+	.row.form-group
+		.col-lg-12
+			= button_tag "Back", :type => 'button', :class => "pull-left btn btn-danger", :onclick => "location.href = '#{root_path()}'"
+			= button_tag "New Transaction", :type => 'button', :class => "pull-right btn btn-success", :onclick => "location.href = '#{get_balance_accounts_path()}'"
